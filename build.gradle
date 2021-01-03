@@ -2,8 +2,8 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.4.10'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group 'xyz.flaflo'
+version '0.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -18,4 +18,8 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+jar {
+    baseName("KSNES")
 }
