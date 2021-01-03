@@ -101,17 +101,17 @@ class SnesRomHeaderValue(private val parent: SnesRomHeaderReader, var offset: In
     }
 
     /**
-     * Reads and converts this value into a SnesCartridgeType
+     * Reads and converts this value into a SnesCartridge
      *
      * @see SnesCartridge
-     * @return a SnesCartridgeType
+     * @return a SnesCartridge
      */
-    fun readCartridgeType(): SnesCartridge {
+    fun readCartridge(): SnesCartridge {
         //Converting into a string and extracting the numbers out of it again is really ugly
         //But I could think of another way to do it at the moment and I wanted this to work
         //Improvements are welcome! :)
 
-        val typeByte = parent.cartridgeType.readByte().toUInt()
+        val typeByte = parent.cartridge.readByte().toUInt()
         var type = typeByte.toString(16)
 
         if (typeByte < 10U) {

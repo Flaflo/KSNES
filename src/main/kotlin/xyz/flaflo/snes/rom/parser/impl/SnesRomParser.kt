@@ -36,12 +36,12 @@ class SnesRomParser(override var inputStream: InputStream) : ISnesRomParser {
         val country = SnesRomCountry.fromId(header.countryCode.readByte().toInt())
         val licensor = SnesRomLicensor.fromId(header.licensorCode.readByte().toInt())
         val version = header.version.readByte().toInt()
-        val cartridgeType = header.cartridgeType.readCartridgeType()
+        val cartridge = header.cartridge.readCartridge()
 
         return SnesRom(
             name.trim(),
             layout,
-            cartridgeType,
+            cartridge,
             romSize,
             saveRamSize,
             country,
